@@ -1,5 +1,6 @@
 from chat import chat
 from pricing import calculate_cost
+from tokens import count_tokens, count_conversation_tokens
 
 conversations = []
 
@@ -9,6 +10,8 @@ while True:
         print("Good Luck :)")
         break
     conversations.append({'role': 'user', 'content': user_input})
+    current_tokens = count_conversation_tokens(conversations)
+    print(f"\nContext tokens: {current_tokens}")
     print("AI: ", end="")
     answer, response = chat(conversations)
     print()
