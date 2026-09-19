@@ -10,3 +10,9 @@ def count_conversation_tokens(conversations):
     for message in conversations:
         total_tokens += count_tokens(message["content"])
     return total_tokens
+
+def trim_conversation(conversations, max_tokens):
+    while count_conversation_tokens(conversations) > max_tokens:
+        conversations.pop(0)
+
+    return conversations
