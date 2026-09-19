@@ -8,6 +8,7 @@ while True:
         print("Good Luck :)")
         break
     conversations.append({'role': 'user', 'content': user_input})
-    answer = chat(conversations)
+    print("AI: ", end="")
+    answer, response = chat(conversations)
+    print()
     conversations.append({'role': 'assistant', 'content': answer})
-    print(f'AI: {answer}')
